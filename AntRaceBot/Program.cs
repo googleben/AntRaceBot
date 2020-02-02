@@ -86,7 +86,7 @@ namespace AntRaceBot
         {
             khook = new KeyboardHook();
             khook.RegisterHotKey(settings.startMods, settings.startKeys);
-            khook.RegisterHotKey(settings.stopMods, settings.stopKeys);
+            if (settings.startMods != settings.stopMods || settings.startKeys != settings.stopKeys) khook.RegisterHotKey(settings.stopMods, settings.stopKeys);
             khook.KeyPressed += HandleHotkey;
         }
 
